@@ -12,13 +12,19 @@ $content-width-max: 50rem;
   margin: 0;
   padding: 1rem 1rem 2rem 1rem;
   font-weight: 200;
-  font-family: Arial;
   opacity: 0.7;
   text-align: center;
 }
 
+@mixin content-main {
+  max-width: $content-width-max;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body {
   margin: 0;
+  font-family: Arial;
 }
 
 header {
@@ -67,20 +73,168 @@ header {
 }
 
 .plot {
+  background-color: rgb(233, 231, 231);
+  height: 22rem;
   .heading2 {
     @include heading-h2;
   }
   .main-content {
-    max-width: $content-width-max;
-    margin-left: auto;
-    margin-right: auto;
+    @include content-main;
     display: flex;
-    justify-content: space-between;
-
+    flex-grow: 1;
+    gap: 1rem;
     .plot-image {
       width: 20%;
     }
     .plot-text {
+      line-height: 1.5rem;
+      p {
+        font-size: 0.9rem;
+      }
+      h3 {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.characters {
+  height: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: {
+    image: url("/src/img/rey-standing.jpg");
+    size: cover;
+    position: center;
+  }
+  h2 {
+    @include heading-h2;
+  }
+  .main-content {
+    @include content-main;
+    display: flex;
+    align-items: center;
+    align-content: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    img {
+      width: 15%;
+      border-radius: 50%;
+    }
+    .characters-img__smallest {
+      width: 8%;
+    }
+    .characters-img__smaller {
+      width: 10%;
+    }
+    .characters-img__small {
+      width: 12%;
+    }
+  }
+}
+
+.ratings {
+  background-color: rgb(233, 231, 231);
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h2 {
+    @include heading-h2;
+    padding-bottom: 0.5rem;
+  }
+  .main-content {
+    @include content-main;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10%;
+    text-align: center;
+    opacity: 0.7;
+    div {
+      h3 {
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
+    }
+    .ratings-imdb {
+      .ratings-bar {
+        background-color: gray;
+        width: 10rem;
+        height: 8rem;
+      }
+    }
+    .ratings-rotten {
+      .ratings-bar {
+        background-color: gray;
+        width: 10rem;
+        height: 11rem;
+      }
+    }
+    .ratings-meta {
+      .ratings-bar {
+        background-color: gray;
+        width: 10rem;
+        height: 9rem;
+      }
+    }
+  }
+}
+
+.cast {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  background-color: rgb(233, 231, 231);
+  height: 26rem;
+  h2 {
+    @include heading-h2;
+    padding-bottom: 0.3rem;
+  }
+  .main-content {
+    @include content-main;
+    .mark-hamill {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0.8rem;
+      .mark-hamil__img {
+        width: 15%;
+      }
+      h3 {
+        padding: 0 0 0.2rem 1rem;
+      }
+      p {
+        line-height: 1.3rem;
+        font-size: 0.85rem;
+        padding: 0 0 0.2rem 1rem;
+      }
+    }
+    .cast-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .cast-bar__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .cast-bar__image {
+          width: 70%;
+        }
+        .cast-bar__text {
+          background-color: rgba(4, 3, 3, 0.5);
+          width: 70%;
+          color: white;
+          font-size: 0.8rem;
+          text-align: center;
+          margin: 0;
+          padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+          position: relative;
+          bottom: 1.3rem;
+        }
+      }
     }
   }
 }
