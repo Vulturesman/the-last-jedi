@@ -7,6 +7,16 @@ html {
   box-sizing: inherit;
 }
 
+$content-width-max: 50rem;
+@mixin heading-h2 {
+  margin: 0;
+  padding: 1rem 1rem 2rem 1rem;
+  font-weight: 200;
+  font-family: Arial;
+  opacity: 0.7;
+  text-align: center;
+}
+
 body {
   margin: 0;
 }
@@ -28,6 +38,49 @@ header {
       &:hover {
         color: red;
       }
+    }
+  }
+}
+
+.welcome {
+  height: 13rem;
+  display: flex;
+  color: white;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: {
+    image: url("/src/img/welcome.jpg");
+    size: cover;
+    position: center;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0 0 0.3rem 0;
+  }
+  h2 {
+    color: white;
+    opacity: 0.76;
+    margin: 0;
+  }
+}
+
+.plot {
+  .heading2 {
+    @include heading-h2;
+  }
+  .main-content {
+    max-width: $content-width-max;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+
+    .plot-image {
+      width: 20%;
+    }
+    .plot-text {
     }
   }
 }
